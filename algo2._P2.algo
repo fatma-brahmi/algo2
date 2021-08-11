@@ -1,0 +1,52 @@
+ALGORITHM Prob2_Sol1
+VAR
+    tab1 : ARRAY_OF INTEGER[] ;
+    tab2 : ARRAY_OF INTEGER[] ;
+    i , j , som : INTEGER ;
+BEGIN
+   tab1:={12, 13, 6, 10 };
+   tab2:={13, 10, 16, 15 }
+   som :=0;
+    FOR i FROM 0 TO tab1.length - 1  DO
+        FOR j FROM 0 TO tab2.length - 1   DO
+            IF (set1[i] = tab2[j]) THEN
+                 som := som + tab1[i] * 2 ;
+            END_IF        
+        END_FOR
+    END_FOR
+    Write(som);
+END
+ALGORITHM Prob2_Sol2
+VAR
+    tab1 : ARRAY_OF INTEGER[] ;
+    tab2 : ARRAY_OF INTEGER[] ;
+    i , som : INTEGER;
+    htab : HASH_TABLE<INTEGER,INTEGER>;
+BEGIN
+ tab1:={12, 13, 6, 10 };
+   tab2:={13, 10, 16, 15 }
+   som :=0;
+    FOR i FROM 0 TO set1.length - 1 STEP 1 DO
+        htab.insert(set1[i] , 1);
+    END_FOR
+
+    FOR i FROM 0 TO tab2.length - 1 STEP 1 DO
+        IF (htab.lookup(tab2[i]) = TRUE) THEN
+            htab.insert(tab2[i] , htab.get(tab2[i]) + 1);
+        ELSE
+            htab.insert(tab2[i] , 1);
+        END_IF
+    END_FOR
+    FOR i FROM 0 TO tab1.length - 1 STEP 1 DO
+        IF (htab.get(tab1[i]) = 2) THEN
+            som := som + 1[i];
+        END_IF
+    END_FOR
+    FOR i FROM 0 TO tab2.length - 1 STEP 1 DO
+        IF (htab.get(tab2[i]) = 2) THEN
+            som := som + tab2[i];
+        END_IF
+    END_FOR
+    Write(som);
+
+END
