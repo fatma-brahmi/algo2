@@ -12,8 +12,8 @@ BEGIN
           IF (tab1[i] == tab2[j]) THEN
          break;
           END_IF
-        IF (j = set2.length - 1) THEN
-                som = som + set1[i];
+        IF (j = tab2.length - 1) THEN
+                som = som + tab1[i];
             END_IF
             
                 
@@ -26,8 +26,8 @@ BEGIN
           IF (tab1[i] == tab2[j]) THEN
          break;
           END_IF
-        IF (j = set2.length - 1) THEN
-                som = som + set2[i];
+        IF (j = tab2.length - 1) THEN
+                som = som + tab2[i];
             END_IF
             
                 
@@ -58,7 +58,7 @@ END
 
    FOR i FROM 0 TO tab1.length - 1  DO
     IF ( htab.get(tab1[i]) = 1) THEN
-            som := som + set1[i];
+            som := som + tab1[i];
         END_IF
    END_FOR
     FOR i FROM 0 TO tab2.length - 1   DO

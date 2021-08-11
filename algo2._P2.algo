@@ -9,7 +9,7 @@ BEGIN
    som :=0;
     FOR i FROM 0 TO tab1.length - 1  DO
         FOR j FROM 0 TO tab2.length - 1   DO
-            IF (set1[i] = tab2[j]) THEN
+            IF (tab1[i] = tab2[j]) THEN
                  som := som + tab1[i] * 2 ;
             END_IF        
         END_FOR
@@ -26,8 +26,8 @@ BEGIN
  tab1:={12, 13, 6, 10 };
    tab2:={13, 10, 16, 15 }
    som :=0;
-    FOR i FROM 0 TO set1.length - 1 STEP 1 DO
-        htab.insert(set1[i] , 1);
+    FOR i FROM 0 TO tab1.length - 1 STEP 1 DO
+        htab.insert(tab1[i] , 1);
     END_FOR
 
     FOR i FROM 0 TO tab2.length - 1 STEP 1 DO
